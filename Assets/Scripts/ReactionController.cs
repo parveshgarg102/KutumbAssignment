@@ -89,6 +89,8 @@ public class ReactionController : MonoBehaviour
         animator.enabled = false;
         yield return PlayState(smileBlend);
         yield return PlayState(sadBlend);
+        yield return PlayState(smileBlend);
+        yield return PlayState(sadBlend);
        
     }
 
