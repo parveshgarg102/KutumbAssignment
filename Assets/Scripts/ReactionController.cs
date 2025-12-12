@@ -88,8 +88,8 @@ public class ReactionController : MonoBehaviour
         
        face.SetBlendShapeWeight(smileIndex, 0);
         face.SetBlendShapeWeight(sadIndex, 0);
-       
-        //animator.CrossFade(idleAnim, 0.1f);
+
+        //animator.CrossFade(idleAnim, 0.1f);       //blenshape not working with animator
     }
 
     private void StartSequence()
@@ -105,7 +105,7 @@ public class ReactionController : MonoBehaviour
 
         lipSync.Play(audioSource);
 
-        animator.CrossFade(idleAnim, 0.1f);
+        //animator.CrossFade(idleAnim, 0.1f);       //blenshape not working with animator
 
         // Wait until audio ends
         yield return new WaitWhile(() => audioSource.isPlaying);
@@ -114,8 +114,8 @@ public class ReactionController : MonoBehaviour
         targetSmile = 0;
         targetSad = 0;
         StartCoroutine(FadeBlend(smileIndex, 80));
-        //animator.CrossFade(idleAnim, 0.1f);
-         animator.enabled = true;
+        //animator.CrossFade(idleAnim, 0.1f);       //blenshape not working with animator
+        animator.enabled = true;
     }
 
     private IEnumerator FadeBlend(int index, float target)

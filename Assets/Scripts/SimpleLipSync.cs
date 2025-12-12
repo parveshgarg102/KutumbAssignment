@@ -27,7 +27,7 @@ public class SimpleLipSync : MonoBehaviour
     {
        animator.enabled = false; // 
         //if (animator != null)
-        //    animator.CrossFade(talkAnimState, 0.15f);
+        //    animator.CrossFade(talkAnimState, 0.15f);       //blenshape not working with animator
         if (currentRoutine != null)
             StopCoroutine(currentRoutine);
 
@@ -39,8 +39,6 @@ public class SimpleLipSync : MonoBehaviour
         if (faceMesh == null || audioSource == null)
             yield break;
 
-        // Small random offset so it doesn't look robotic
-        float offset = Random.Range(0f, 2f * Mathf.PI);
         float[] samples = new float[256];
 
         while (audioSource.isPlaying)
@@ -65,10 +63,10 @@ public class SimpleLipSync : MonoBehaviour
 
         // Reset mouth closed
         faceMesh.SetBlendShapeWeight(mouthOpenBlendShapeIndex, 0f);
-        
-        
-       // animator.enabled = true;
-      //  animator.CrossFade(idleAnimState, 0.15f);
+
+
+        // animator.enabled = true;
+        //  animator.CrossFade(idleAnimState, 0.15f);       //blenshape not working with animator
         currentRoutine = null;
     }
 }
